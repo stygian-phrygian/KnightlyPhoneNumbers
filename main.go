@@ -47,12 +47,15 @@ Hence, to compute a valid 7 digit sequence of knight movement phone numbers, we 
 up from the base case  (1 digit sequences) until we've found a count for each number in
 the 7th row, and sum them producing our result.
 
-To keep track of the prior rows, we create a 7x10 matrix
-where row (r) represents the number of r+1 valid knight movement sequences
-which begin with column (c).
+To keep track of the prior sequences, we could use a matrix of N by 10 dimensions
+though it's unnecessary to create one as only 2 rows are every concurrently used
+(the previous row and the next row).
 
-Our base case first row has only *1* valid move, the first row's values should all = 1,
-with that added caveat that a sequence cannot start with 0 or 1.
+Our base case first row has only *1* valid move, the first row's values should all = 1
+(as they represent the count of possible sequences which here are only of length 1).
+With the added caveat that a sequence cannot start with 0 or 1, our base case
+looks something like: {0, 0, 1, 1, 1, 1, 1, 1, 1, 1}.  From here we build off from
+successive iterations.
 
 */
 
